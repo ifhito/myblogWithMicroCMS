@@ -1,7 +1,7 @@
 import React, { ReactFragment } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import Nav from '../components/nav';
+import Nav from './nav';
 interface LayoutProps {
     children: React.ReactNode;
  }
