@@ -12,15 +12,20 @@ export default function Layout({ children }:LayoutProps) {
             <Head>
                 <title>hotakesBlog</title>
             </Head>
-            <a>
-                <h1>
-                    <Link href="/" passHref>
-                        HOTAKES BLOG
-                    </Link>
-                </h1>
-            </a>
-            <Nav />
+            <main id="main">
+                    <h1 id="head-center">
+                        <Link href="/" passHref>
+                        <a><span className="head-color">HOTAKES BLOG</span></a>
+                        </Link>
+                        <style jsx global>{`
+                            #head-center {
+                                text-align: center;
+                            }
+                        `}</style>
+                    </h1>
+                <Nav />
             {children}
+            </main>
         </>
         )
   }

@@ -1,29 +1,33 @@
 import React from "react";
 import Link from "next/link";
-const containerStyle = {
-    display:'flex'
-}
-const itemStyle = {
-    padding: 10
-}
 const Nav: React.FC = () => {
     return (
-        <div style={containerStyle}>
+        <div id="link-container">
             <Link href="/" passHref>
-                <a style={itemStyle}>
+                <a className="link">
                     HOME
                 </a>
             </Link>
             <Link href="/about" passHref>
-                <a style={itemStyle}>
+                <a className="link">
                     ABOUT
                 </a>
             </Link>
             <Link href="/link" passHref>
-                <a style={itemStyle}>
+                <a className="link">
                     LINK
                 </a>
-            </Link>          
+            </Link>
+            <style jsx>{`
+                .link {
+                    color: #2196F3;
+                    margin: 10px;
+                }
+                #link-container {
+                    display: 'flex';
+                    text-align: center;
+                }
+            `}</style>     
         </div>
     )
 }

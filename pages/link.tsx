@@ -3,42 +3,34 @@ import Link from "next/link";
 const Link_: ReactFragment = () => {
   return (
       <>
-        <h1>その他リンク</h1>
-        <a>
-            <h2>
+        <h1 className="head-color">その他リンク</h1>
+        <ul>
+            <li>
                 <Link href="https://twitter.com/ifhito" passHref>
-                    Twitter
+                <a className="content-color">Twitter</a>
                 </Link>
-            </h2>
-        </a>
-        <a>
-            <h2>
+            </li>
+            <li>
                 <Link href="https://note.com/ifhito" passHref>
-                    Note
+                <a className="content-color">Note</a>
                 </Link>
-            </h2>
-        </a>
-        <a>
-            <h2>
+            </li>
+            <li>
                 <Link href="https://github.com/ifhito" passHref>
-                    Github
+                    <a className="content-color">Github</a>
                 </Link>
-            </h2>
-        </a>
-        <a>
-            <h2>
+            </li>
+            <li>
                 <Link href="https://zenn.dev/ifhito" passHref>
-                    Zenn
+                    <a className="content-color">Zenn</a>
                 </Link>
-            </h2>
-        </a>
-        <a>
-            <h2>
+            </li>
+            <li>
                 <Link href="https://bookmeter.com/users/991028" passHref>
-                    読書メーター
+                    <a className="content-color">読書メーター</a>
                 </Link>
-            </h2>
-        </a>
+            </li>
+        </ul>
     </>
   )
 }

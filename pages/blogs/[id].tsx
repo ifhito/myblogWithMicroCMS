@@ -18,7 +18,7 @@ const BlogsItemPage: NextPage<BlogItemType> = (props) => {
   const { title, date, content } = props;
   return (
     <>
-      <article>
+      <article className="content-color">
         <header>
           <h1 style={contentTitleStyle}>{ title }</h1>
           <p>{ formatDate(date)}</p>

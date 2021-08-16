@@ -11,15 +11,20 @@ const BlogItem: React.FC<BlogItemType> = props => {
   const item = props.items;
 
   return (
-            <li>
+            <li className="content-color">
                 <h3>
                   <Link href="/blogs/[id]" as={`/blogs/${item.id}`} passHref>
-                    <a>
+                    <a className="content-color">
                       { item.title }
                     </a>
                   </Link>
                 </h3>
-              { formatDate(item.date) }
+              <span className="content-color">{ formatDate(item.date) }</span>
+              <style jsx global>{`
+                h3 {
+                  margin:0;
+                }
+              `}</style>
             </li>
   )
 }
