@@ -16,12 +16,12 @@ const Nav: React.FC = () => {
             </Link>
             <Link href="/about" passHref>
                 <a style={itemStyle}>
-                    About
+                    ABOUT
                 </a>
             </Link>
-            <Link href="/connect" passHref>
+            <Link href="/link" passHref>
                 <a style={itemStyle}>
-                    CONNECT
+                    LINK
                 </a>
             </Link>          
         </div>
