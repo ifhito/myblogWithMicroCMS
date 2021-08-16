@@ -10,6 +10,9 @@ interface BlogItemType {
   content: string
 }
 
+const contentTitleStyle = {
+  fontSize: 'calc(42 / 20 * 1rem)'
+}
 
 const BlogsItemPage: NextPage<BlogItemType> = (props) => {
   const { title, date, content } = props;
@@ -17,7 +20,7 @@ const BlogsItemPage: NextPage<BlogItemType> = (props) => {
     <>
       <article>
         <header>
-          <h1>{ title }</h1>
+          <h1 style={contentTitleStyle}>{ title }</h1>
           <p>{ formatDate(date)}</p>
         </header>
         <ReactMarkdown
@@ -29,7 +32,6 @@ const BlogsItemPage: NextPage<BlogItemType> = (props) => {
     </>
   )
 }
-
 export const getStaticPaths = async () => {
   const data = await getBlogs();
   const paths = data.contents.map((item:{id:string}) => `/blogs/${item.id}`);
