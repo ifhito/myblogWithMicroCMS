@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import Link from 'next/link'
-import React from 'react';
+import React, { useState } from 'react';
 import { getBlogs } from '../lib/getContent';
 import formatDate from '../components/FormatDate'
 type BlogItemType = {
@@ -26,14 +26,22 @@ const BlogItem: React.FC<BlogItemType> = props => {
 
 const Blogs: NextPage = (props: any) => {
   const { contents } = props;
-
+  const [endContent, setEndContent] = useState(5);
+  const handlerClick = () => {
+    setEndContent(endContent+5)
+  }
   return (
     <div className="blog-container">
       <ul>
       {
-        contents.map( (item: { id: React.Key; }) => <BlogItem items={ item } key={ item.id } />)
+        contents.slice(0,endContent).map( (item: { id: React.Key; }) => <BlogItem items={ item } key={ item.id } />)
       }
       </ul>
+      {
+        contents.length > endContent ? (
+          <button onClick={handlerClick}>もっと見る</button>
+        ):''
+      }
     </div>
   )
 }
