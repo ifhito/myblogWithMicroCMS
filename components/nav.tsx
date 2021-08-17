@@ -21,7 +21,8 @@ const Nav: React.FC = () => {
             <style jsx>{`
                 .link {
                     color: #2196F3;
-                    margin: 10px;
+                    margin: 100px;
+                    width: 10%;
                 }
                 #link-container {
                     display: 'flex';

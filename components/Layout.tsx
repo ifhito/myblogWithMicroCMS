@@ -13,19 +13,29 @@ export default function Layout({ children }:LayoutProps) {
                 <title>hotakesBlog</title>
             </Head>
             <main id="main">
-                    <h1 id="head-center">
-                        <Link href="/" passHref>
-                        <a><span className="head-color">HOTAKES BLOG</span></a>
-                        </Link>
-                        <style jsx global>{`
-                            #head-center {
-                                text-align: center;
-                            }
-                        `}</style>
-                    </h1>
+                <h1 id="head-center">
+                    <Link href="/" passHref>
+                    <a><span className="head-color">HOTAKES BLOG</span></a>
+                    </Link>
+                </h1>
                 <Nav />
-            {children}
+                <div id="main-content">
+                    {children}
+                </div>
             </main>
+            <style jsx>{`
+                #head-center {
+                    text-align: center;
+                }
+                #main {
+                    width: 100%;
+                }
+                #main-content {
+                    width: 40rem;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            `}</style>
         </>
         )
   }

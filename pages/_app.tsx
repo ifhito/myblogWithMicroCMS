@@ -5,11 +5,13 @@ const App = ({ Component, pageProps }:AppProps) => {
     <Layout>
       <Component {...pageProps} />
       <style jsx global>{`
+          html {
+            display: flex;
+          }
           body {
             background-color: #212121;
             margin-left: auto;
             margin-right: auto;
-            width: fit-content;
           }
           ul {
             list-style: none;
