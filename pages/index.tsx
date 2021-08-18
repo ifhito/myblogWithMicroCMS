@@ -29,6 +29,9 @@ const BlogItem: React.FC<BlogItemType> = props => {
                 a {
                   width:100%;
                 }
+                #page-li {
+                  margin-bottom: 30px;
+                }
                 @media (max-width: 767px){
                   #date {
                     font-size: 20px

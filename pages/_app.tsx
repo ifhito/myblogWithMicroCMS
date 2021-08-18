@@ -26,6 +26,12 @@ const App = ({ Component, pageProps }:AppProps) => {
           .content-color {
             color: #CDDC39;
           }
+          a:link {
+            color: #1D9BD1;
+          }
+          a:visited {
+            color: #1D9BD1;
+          }
           @media (max-width: 767px){
             body {
               font-size: 30px;
