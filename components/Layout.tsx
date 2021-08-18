@@ -15,7 +15,7 @@ export default function Layout({ children }:LayoutProps) {
             <main id="main">
                 <h1 id="head-center">
                     <Link href="/" passHref>
-                    <a><span className="head-color">HOTAKES BLOG</span></a>
+                    <a id="title-header"><span className="head-color">HOTAKES BLOG</span></a>
                     </Link>
                 </h1>
                 <Nav />
@@ -34,6 +34,9 @@ export default function Layout({ children }:LayoutProps) {
                     width: 40rem;
                     margin-left: auto;
                     margin-right: auto;
+                }
+                #title-header {
+                    text-decoration: none;
                 }
             `}</style>
         </>
