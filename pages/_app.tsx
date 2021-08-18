@@ -15,12 +15,24 @@ const App = ({ Component, pageProps }:AppProps) => {
           }
           ul {
             list-style: none;
+            padding-left: 0;
           }
           .head-color {
             color: #2196F3;
           }
+          .link-border-none{
+            text-decoration: none;
+          }
           .content-color {
             color: #CDDC39;
+          }
+          @media (max-width: 767px){
+            .head-color {
+              font-size: 60px;
+            }
+            h2 {
+              font-size:50px;
+            }
           }
       `}</style>
     </Layout>

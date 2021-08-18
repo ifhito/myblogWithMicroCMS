@@ -14,6 +14,11 @@ const Link_: ReactFragment = () => {
                     </li>
                 ))}
             </ul>
+            <style jsx global>{`
+                li {
+                    margin-bottom: 20px;
+                }
+            `}</style>
         </>
     )
 }

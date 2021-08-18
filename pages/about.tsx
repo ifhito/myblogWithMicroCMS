@@ -4,7 +4,7 @@ const About: ReactFragment = () => {
   return (
       <>
         <h1 className="head-color">ブログ著者と自己紹介</h1>
-        <h2 className="head-color">著者: HOTAKE</h2>
+        <h2 className="content-color">著者: HOTAKE</h2>
         <p className="content-color">
             東京のWeb企業(なのだろうか?)でエンジニアをやっている人です
         </p>
