@@ -10,25 +10,33 @@ interface BlogItemType {
   content: string
 }
 
-const contentTitleStyle = {
-  fontSize: 'calc(42 / 20 * 1rem)'
-}
-
 const BlogsItemPage: NextPage<BlogItemType> = (props) => {
   const { title, date, content } = props;
   return (
     <>
       <article className="content-color">
         <header>
-          <h1 style={contentTitleStyle}>{ title }</h1>
-          <p>{ formatDate(date)}</p>
+          <h1 id="title">{ title }</h1>
+          <p id="date">{ formatDate(date)}</p>
         </header>
+        <hr/>
         <ReactMarkdown
           components={{ code: CodeBlock }}
         >
           {content}
         </ReactMarkdown>
       </article>
+      <style jsx global>{`
+        @media (max-width: 767px){
+          h1#title {
+            margin-bottom:0;
+          }
+          p#date {
+            margin-bottom: 0;
+            margin-top: 0;
+          }
+        }
+      `}</style>
     </>
   )
 }

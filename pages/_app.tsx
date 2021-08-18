@@ -27,7 +27,13 @@ const App = ({ Component, pageProps }:AppProps) => {
             color: #CDDC39;
           }
           @media (max-width: 767px){
+            body {
+              font-size: 30px;
+            }
             .head-color {
+              font-size: 60px;
+            }
+            h1 {
               font-size: 60px;
             }
             h2 {
