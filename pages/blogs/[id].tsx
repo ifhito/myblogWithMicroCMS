@@ -14,10 +14,10 @@ const BlogsItemPage: NextPage<BlogItemType> = (props) => {
   const { title, date, content } = props;
   return (
     <>
-      <article className="content-color">
+      <article id="main-article"className="content-color">
         <header>
-          <h1 id="title">{ title }</h1>
-          <p id="date">{ formatDate(date)}</p>
+          <h1 id="title" className="head-color">{ title }</h1>
+          <p id="date" className="head-color">{ formatDate(date)}</p>
         </header>
         <hr/>
         <ReactMarkdown
@@ -28,6 +28,9 @@ const BlogsItemPage: NextPage<BlogItemType> = (props) => {
       </article>
       <style jsx global>{`
         @media (max-width: 767px){
+          #main-article {
+            margin: 0 25px;
+          }
           h1#title {
             margin-bottom:0;
           }

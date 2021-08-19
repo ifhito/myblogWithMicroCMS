@@ -27,12 +27,12 @@ const Nav: React.FC = () => {
                 #link-container {
                     display: 'flex';
                     text-align: center;
-                    margin-bottom: 50px;
+                    margin-bottom: 35px;
                 }
                 @media (max-width: 767px){
                     .link {
-                        font-size: 40px;
-                        margin: 60px
+                        margin: 20px;
+                        font-size: 25px;
                     }
                 }
             `}</style>     

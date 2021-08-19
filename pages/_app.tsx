@@ -7,11 +7,15 @@ const App = ({ Component, pageProps }:AppProps) => {
       <style jsx global>{`
           html {
             display: flex;
+            height: 100%;
+            width: 100%;
           }
           body {
             background-color: #212121;
             margin-left: auto;
             margin-right: auto;
+            margin-top: 0;
+            margin-bottom: 0;
           }
           ul {
             list-style: none;
@@ -33,18 +37,6 @@ const App = ({ Component, pageProps }:AppProps) => {
             color: #1D9BD1;
           }
           @media (max-width: 767px){
-            body {
-              font-size: 30px;
-            }
-            .head-color {
-              font-size: 60px;
-            }
-            h1 {
-              font-size: 60px;
-            }
-            h2 {
-              font-size:50px;
-            }
           }
       `}</style>
     </Layout>

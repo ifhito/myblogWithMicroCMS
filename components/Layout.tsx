@@ -12,17 +12,24 @@ export default function Layout({ children }:LayoutProps) {
             <Head>
                 <title>hotakesBlog</title>
             </Head>
-            <main id="main">
-                <h1 id="head-center">
-                    <Link href="/" passHref>
-                    <a id="title-header"><span className="head-color">HOTAKES BLOG</span></a>
-                    </Link>
-                </h1>
-                <Nav />
-                <div id="main-content">
-                    {children}
-                </div>
-            </main>
+            <div id="wrapper">
+                <main id="main">
+                    <header>
+                        <h1 id="head-center">
+                            <Link href="/" passHref>
+                            <a id="title-header"><span className="head-color">HOTAKES BLOG</span></a>
+                            </Link>
+                        </h1>
+                    </header>
+                    <Nav />
+                    <div id="main-content">
+                        {children}
+                    </div>
+                </main>
+                <footer>
+                    <p className="head-color">© 2021 HOTAKE</p>
+                </footer>
+            </div>
             <style jsx>{`
                 #head-center {
                     text-align: center;
@@ -31,12 +38,27 @@ export default function Layout({ children }:LayoutProps) {
                     width: 100%;
                 }
                 #main-content {
-                    width: 40rem;
                     margin-left: auto;
                     margin-right: auto;
+                    width: 600px;
                 }
                 #title-header {
                     text-decoration: none;
+                }
+                #wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    min-height: 100vh;
+                }
+                footer {
+                    margin-top: auto;
+                    text-align: center;
+                }
+                @media (max-width: 767px){
+                    #main-content {
+                        padding: 0 15px;
+                        width: auto;
+                    }
                 }
             `}</style>
         </>

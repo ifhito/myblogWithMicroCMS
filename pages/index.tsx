@@ -33,13 +33,13 @@ const BlogItem: React.FC<BlogItemType> = props => {
                   margin-bottom: 30px;
                 }
                 @media (max-width: 767px){
-                  #date {
-                    font-size: 20px
-                  }
-                  h2 {
-                    margin:0;
-                    font-size: 50px;
-                  }
+                  // #date {
+                  //   font-size: 20px
+                  // }
+                  // h2 {
+                  //   margin:0;
+                  //   font-size: 50px;
+                  // }
                 }
               `}</style>
             </li>
