@@ -61,9 +61,29 @@ const Blogs: NextPage = (props: any) => {
       </ul>
       {
         contents.length > endContent ? (
-          <button onClick={handlerClick}>もっと見る</button>
+          <div id="button-wrapper">
+            <button type="button" id="more-button" onClick={handlerClick}>もっと見る</button>
+          </div>
         ):''
       }
+      <style jsx global>{`
+        #more-button {
+          background-color: transparent;
+          color: #2196F3;
+          border-color: #CDDC39;
+          border-radius: 0.9em;
+          border-style: solid;
+          font-size: 20px;
+          padding: 5px 40px;
+        }
+        #more-button:hover {
+          background-color: #cddc39;
+          color: #252525;
+        }
+        #button-wrapper {
+          text-align:center;
+        }
+      `}</style>
     </div>
   )
 }
