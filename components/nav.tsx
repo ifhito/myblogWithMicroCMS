@@ -2,22 +2,28 @@ import React from "react";
 import Link from "next/link";
 const Nav: React.FC = () => {
     return (
-        <div id="link-container">
-            <Link href="/" passHref>
-                <a className="link">
-                    HOME
-                </a>
-            </Link>
-            <Link href="/about" passHref>
-                <a className="link">
-                    ABOUT
-                </a>
-            </Link>
-            <Link href="/link" passHref>
-                <a className="link">
-                    LINK
-                </a>
-            </Link>
+        <ul id="link-container">
+            <li>
+                <Link href="/" passHref>
+                    <a className="link space-2">
+                        HOME
+                    </a>
+                </Link>
+            </li>
+            <li>
+                <Link href="/about" passHref>
+                    <a className="link space-2">
+                        ABOUT
+                    </a>
+                </Link>
+            </li>
+            <li>
+                <Link href="/link" passHref>
+                    <a className="link space-5">
+                        LINK
+                    </a>
+                </Link>
+            </li>
             <style jsx>{`
                 .link {
                     color: #2196F3;
@@ -25,7 +31,7 @@ const Nav: React.FC = () => {
                     width: 10%;
                 }
                 #link-container {
-                    display: 'flex';
+                    display: flex;
                     text-align: center;
                     margin-bottom: 35px;
                 }
@@ -34,9 +40,16 @@ const Nav: React.FC = () => {
                         margin: 20px;
                         font-size: 25px;
                     }
+                    .space-5 {
+                        letter-spacing: 5px;
+                    }
+                    .space-2 {
+                        letter-spacing: 2px;
+                    }
                 }
+                
             `}</style>     
-        </div>
+        </ul>
     )
 }
 
