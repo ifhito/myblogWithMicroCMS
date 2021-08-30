@@ -32,13 +32,13 @@ const Nav: React.FC = () => {
                 }
                 #link-container {
                     display: flex;
+                    justify-content: space-evenly;
                     text-align: center;
                     margin-bottom: 35px;
                 }
                 @media (max-width: 767px){
                     .link {
                         margin: 20px;
-                        font-size: 25px;
                     }
                     .space-5 {
                         letter-spacing: 5px;
