@@ -31,26 +31,6 @@ const App = ({ Component, pageProps }:AppProps) => {
           li {
             font-size: 1.6rem;
           }
-          @media (min-width: 1200px) {
-            h1 {
-                font-size: 3.6rem;/* 36px*/
-            }
-            h2 {
-                font-size: 2.4rem;/* 24px*/
-            }
-          }
-          @media screen and (max-width: 640px) {
-              body{
-                line-height: 2;
-                font-size: inherit;
-              }
-              h1{
-                  font-size: 2.4rem;/* 24px*/
-              }
-              h2 {
-                  font-size: 2rem;/* 20px*/
-              }
-          }
           ul {
             list-style: none;
             padding-left: 0;
@@ -70,7 +50,31 @@ const App = ({ Component, pageProps }:AppProps) => {
           a:visited {
             color: #1D9BD1;
           }
-          @media (max-width: 767px){
+          @media (min-width: 1200px) {
+            h1 {
+              font-size: 3.6rem;/* 36px*/
+            }
+            h2 {
+              font-size: 2.4rem;/* 24px*/
+            }
+            h3 {
+              font-size: 2rem;
+            }
+          }
+          @media screen and (max-width: 640px) {
+            body{
+              line-height: 2;
+              font-size: inherit;
+            }
+            h1{
+              font-size: 2.4rem;/* 24px*/
+            }
+            h2 {
+              font-size: 2rem;/* 20px*/
+            }
+            h3 {
+              font-size: 1.8rem;
+            }
           }
       `}</style>
     </Layout>

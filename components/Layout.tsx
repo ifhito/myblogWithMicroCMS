@@ -1,7 +1,7 @@
 import React, { ReactFragment } from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
-import Nav from './nav';
+import Header from './Header';
+import Footer from './Footer';
 interface LayoutProps {
     children: React.ReactNode;
  }
@@ -13,27 +13,15 @@ export default function Layout({ children }:LayoutProps) {
                 <title>hotakesBlog</title>
             </Head>
             <div id="wrapper">
+                <Header/>
                 <main id="main">
-                    <header>
-                        <h1 id="head-center">
-                            <Link href="/" passHref>
-                            <a id="title-header"><span className="head-color">HOTAKES BLOG</span></a>
-                            </Link>
-                        </h1>
-                    </header>
-                    <Nav />
                     <div id="main-content">
                         {children}
                     </div>
                 </main>
-                <footer>
-                    <p className="head-color">© 2021 HOTAKE</p>
-                </footer>
+                <Footer/>
             </div>
             <style jsx>{`
-                #head-center {
-                    text-align: center;
-                }
                 #main {
                     width: 100%;
                 }
@@ -42,17 +30,10 @@ export default function Layout({ children }:LayoutProps) {
                     margin-right: auto;
                     width: 600px;
                 }
-                #title-header {
-                    text-decoration: none;
-                }
                 #wrapper {
                     display: flex;
                     flex-direction: column;
                     min-height: 100vh;
-                }
-                footer {
-                    margin-top: auto;
-                    text-align: center;
                 }
                 @media (max-width: 767px){
                     #main-content {
