@@ -15,10 +15,8 @@ const BlogsItemPage: NextPage<BlogItemType> = (props) => {
   return (
     <>
       <article id="main-article"className="content-color">
-        <header>
-          <h1 id="title" className="head-color">{ title }</h1>
-          <p id="date" className="head-color">{ formatDate(date)}</p>
-        </header>
+        <h1 id="title" className="head-color">{ title }</h1>
+        <p id="date" className="head-color">{ formatDate(date)}</p>
         <hr/>
         <ReactMarkdown
           components={{ code: CodeBlock }}

@@ -28,7 +28,6 @@ export default function Layout({ children }:LayoutProps) {
                 #main-content {
                     margin-left: auto;
                     margin-right: auto;
-                    width: 600px;
                 }
                 #wrapper {
                     display: flex;
