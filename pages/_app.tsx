@@ -13,7 +13,10 @@ const App = ({ Component, pageProps }:AppProps) => {
           }
           body {
             background-color: #212121;
-            margin: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-right: auto;
+            margin-left: auto;
             font-size:1.6rem;
           }
           p {
@@ -62,6 +65,7 @@ const App = ({ Component, pageProps }:AppProps) => {
             body{
               line-height: 2;
               font-size: inherit;
+              margin: 0;
             }
             h1{
               font-size: 2.4rem;/* 24px*/

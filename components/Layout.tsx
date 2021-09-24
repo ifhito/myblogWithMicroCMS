@@ -21,8 +21,6 @@ export default function Layout({ children }:LayoutProps) {
             </div>
             <style jsx>{`
                 #main {
-                    margin-left: auto;
-                    margin-right: auto;
                     max-width: 800px;
                 }
                 #wrapper {
