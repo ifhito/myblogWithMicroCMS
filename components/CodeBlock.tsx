@@ -21,7 +21,14 @@ const CodeBlock: CodeComponent | ReactMarkdownNames = ({
         <style jsx>{`
           #code-style {
             font-size: 1.6rem;
+            width: 100%;
           }
+          @media (max-width: 767px){
+            #code-style {
+              width: calc(40rem + ((1vw - 4rem) * 2.1429));
+            }
+          }
+          
           `}</style>
       </div>
     ) : (

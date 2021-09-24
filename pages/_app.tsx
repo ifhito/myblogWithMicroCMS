@@ -7,16 +7,13 @@ const App = ({ Component, pageProps }:AppProps) => {
       <style jsx global>{`
           html {
             display: flex;
-            height: 100%;
-            width: 100%;
+            height: 100vh;
+            width: 100vw;
             font-size: 62.5%;
           }
           body {
             background-color: #212121;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 0;
-            margin-bottom: 0;
+            margin: 0;
             font-size:1.6rem;
           }
           p {

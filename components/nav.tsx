@@ -27,24 +27,24 @@ const Nav: React.FC = () => {
             <style jsx>{`
                 .link {
                     color: #2196F3;
-                    margin: 100px;
+                    margin: 10rem;
                     width: 10%;
                 }
                 #link-container {
                     display: flex;
                     justify-content: space-evenly;
                     text-align: center;
-                    margin-bottom: 35px;
+                    margin-bottom: 3rem;
                 }
                 @media (max-width: 767px){
                     .link {
-                        margin: 20px;
+                        margin: 2rem;
                     }
                     .space-5 {
-                        letter-spacing: 5px;
+                        letter-spacing: 1rem;
                     }
                     .space-2 {
-                        letter-spacing: 2px;
+                        letter-spacing: 0.5rem;
                     }
                 }
                 

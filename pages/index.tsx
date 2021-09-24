@@ -30,7 +30,7 @@ const BlogItem: React.FC<BlogItemType> = props => {
                   width:100%;
                 }
                 #page-li {
-                  margin-bottom: 30px;
+                  margin-bottom: 2.4rem;
                 }
                 @media (max-width: 767px){
                   // #date {
@@ -74,7 +74,7 @@ const Blogs: NextPage = (props: any) => {
           border-radius: 0.9em;
           border-style: solid;
           font-size: 1.6rem;
-          padding: 5px 40px;
+          padding: 0.1rem 5rem;
         }
         #more-button:focus {
           background-color: #cddc39;
