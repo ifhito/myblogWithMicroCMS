@@ -28,6 +28,7 @@ export default function Layout({ children }:LayoutProps) {
                 #main-content {
                     margin-left: auto;
                     margin-right: auto;
+                    max-width: 800px;
                 }
                 #wrapper {
                     display: flex;
@@ -37,7 +38,7 @@ export default function Layout({ children }:LayoutProps) {
                 @media (max-width: 767px){
                     #main-content {
                         padding: 0 15px;
-                        width: auto;
+                        max-width: 450px;
                     }
                 }
             `}</style>

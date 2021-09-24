@@ -73,8 +73,12 @@ const Blogs: NextPage = (props: any) => {
           border-color: #CDDC39;
           border-radius: 0.9em;
           border-style: solid;
-          font-size: 20px;
+          font-size: 1.6rem;
           padding: 5px 40px;
+        }
+        #more-button:focus {
+          background-color: #cddc39;
+          color: #252525;
         }
         #more-button:hover {
           background-color: #cddc39;

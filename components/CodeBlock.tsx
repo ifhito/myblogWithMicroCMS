@@ -14,9 +14,16 @@ const CodeBlock: CodeComponent | ReactMarkdownNames = ({
   }) => {
     const match = /language-(\w+)/.exec(className || '')
     return !inline && match ? (
+      <div id="code-style">
         <SyntaxHighlighter style={materialOceanic} language={match[1]} PreTag="div">
             {String(children).replace(/\n$/, '')}
         </SyntaxHighlighter>
+        <style jsx>{`
+          #code-style {
+            font-size: 1.6rem;
+          }
+          `}</style>
+      </div>
     ) : (
       <code className={className}>
         {children}
