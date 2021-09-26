@@ -26,6 +26,7 @@ export default function Layout({ children }:LayoutProps) {
                 #wrapper {
                     display: flex;
                     flex-direction: column;
+                    min-height: 100vh;
                 }
                 @media (max-width: 767px){
                     #wrapper {

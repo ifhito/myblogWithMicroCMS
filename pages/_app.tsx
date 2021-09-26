@@ -63,7 +63,7 @@ const App = ({ Component, pageProps }:AppProps) => {
           }
           @media screen and (max-width: 640px) {
             body{
-              line-height: 2;
+              line-height: 1.5;
               font-size: inherit;
               margin: 0;
             }

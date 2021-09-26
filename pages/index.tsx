@@ -24,7 +24,7 @@ const BlogItem: React.FC<BlogItemType> = props => {
                 h2 {
                   margin:0;
                   border-bottom: 3px solid;
-                  line-height: 1;
+                  line-height: 1.5;
                 }
                 a {
                   width:100%;
@@ -73,7 +73,7 @@ const Blogs: NextPage = (props: any) => {
           border-color: #CDDC39;
           border-radius: 0.9em;
           border-style: solid;
-          font-size: 1.6rem;
+          font-size: 2.4rem;
           padding: 0.1rem 5rem;
         }
         #more-button:focus {
