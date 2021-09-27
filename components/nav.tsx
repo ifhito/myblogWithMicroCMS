@@ -1,29 +1,20 @@
 import React from "react";
 import Link from "next/link";
 const Nav: React.FC = () => {
+    const links:{pass:string,text:string}[] = [{'pass':'/','text':'HOME'},{'pass':'/about','text':'ABOUT'}, {'pass':'/link','text':'LINK'}]
     return (
         <ul id="link-container">
-            <li>
-                <Link href="/" passHref>
-                    <a className="link space-2">
-                        HOME
-                    </a>
-                </Link>
-            </li>
-            <li>
-                <Link href="/about" passHref>
-                    <a className="link space-2">
-                        ABOUT
-                    </a>
-                </Link>
-            </li>
-            <li>
-                <Link href="/link" passHref>
-                    <a className="link space-5">
-                        LINK
-                    </a>
-                </Link>
-            </li>
+            {links.map((item,i)=>{
+                return(
+                <li key={i}>
+                    <Link href={item.pass} passHref>
+                        <a className="link space-2">
+                            {item.text}
+                        </a>
+                    </Link>
+                </li>
+                );
+            })}
             <style jsx>{`
                 .link {
                     color: #2196F3;
