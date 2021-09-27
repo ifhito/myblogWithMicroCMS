@@ -26,9 +26,6 @@ const BlogsItemPage: NextPage<BlogItemType> = (props) => {
       </article>
       <style jsx global>{`
         @media (max-width: 767px){
-          #main-article {
-            margin: 0 1rem;
-          }
           h1#title {
             margin-bottom:0;
           }

@@ -21,7 +21,7 @@ export default function Layout({ children }:LayoutProps) {
             </div>
             <style jsx>{`
                 #main {
-                    max-width: 800px;
+                    max-width: 740px;
                 }
                 #wrapper {
                     display: flex;

@@ -66,6 +66,7 @@ const App = ({ Component, pageProps }:AppProps) => {
               line-height: 1.5;
               font-size: inherit;
               margin: 0;
+              width: 100%
             }
             h1{
               font-size: 2.4rem;/* 24px*/
