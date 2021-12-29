@@ -9,7 +9,7 @@ const Link_: ReactFragment = () => {
                 {urls.map(url => (
                     <li id='url-link' key={url.split('.')[0].split('//')[1]}>
                         <Link href={url} passHref>
-                            <a className="content-color">{url.split('.')[0].split('//')[1]}</a>
+                            <a href="replace" className="content-color">{url.split('.')[0].split('//')[1]}</a>
                         </Link>
                     </li>
                 ))}

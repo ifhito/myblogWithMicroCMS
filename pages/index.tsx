@@ -14,7 +14,7 @@ const BlogItem: React.FC<BlogItemType> = props => {
             <li id="page-li" className="content-color">
                 <h2>
                   <Link href="/blogs/[id]" as={`/blogs/${item.id}`} passHref>
-                    <a className="content-color link-border-none">
+                    <a href="replace" className="content-color link-border-none">
                       { item.title }
                     </a>
                   </Link>

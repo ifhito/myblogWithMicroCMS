@@ -7,7 +7,7 @@ export default function Header() {
         <header>
             <h1 id="head-center">
                 <Link href="/" passHref>
-                    <a id="title-header"><span className="head-color">HOTAKES BLOG</span></a>
+                    <a href="replace" id="title-header"><span className="head-color">HOTAKES BLOG</span></a>
                 </Link>
             </h1>
             <Nav />

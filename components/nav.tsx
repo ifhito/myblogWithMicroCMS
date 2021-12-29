@@ -8,7 +8,7 @@ const Nav: React.FC = () => {
                 return(
                 <li key={i}>
                     <Link href={item.pass} passHref>
-                        <a className="link space-2">
+                        <a href="replace" className="link space-2">
                             {item.text}
                         </a>
                     </Link>
