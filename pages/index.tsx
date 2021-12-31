@@ -1,5 +1,6 @@
 import { NextPage } from 'next';
 import Link from 'next/link'
+import HeadWrapper from '../components/HeadWrapper';
 import React, { useState } from 'react';
 import { getBlogs } from '../lib/getContent';
 import formatDate from '../components/FormatDate'
@@ -11,7 +12,15 @@ const BlogItem: React.FC<BlogItemType> = props => {
   const item = props.items;
 
   return (
-            <li id="page-li" className="content-color">
+          <>
+            <HeadWrapper
+            title='Contents'
+            description='ブログコンテンツのリストページ'
+            url={__filename}
+            type='blog'
+            />
+            <main id='#main'>
+              <li id="page-li" className="content-color">
                 <h2>
                   <Link href="/blogs/[id]" as={`/blogs/${item.id}`} passHref>
                     <a href="replace" className="content-color link-border-none">
@@ -20,6 +29,7 @@ const BlogItem: React.FC<BlogItemType> = props => {
                   </Link>
                 </h2>
               <span id="date" className="content-color">{ formatDate(item.date) }</span>
+              </li>
               <style jsx global>{`
                 h2 {
                   margin:0;
@@ -42,7 +52,8 @@ const BlogItem: React.FC<BlogItemType> = props => {
                   // }
                 }
               `}</style>
-            </li>
+            </main>
+          </>
   )
 }
 

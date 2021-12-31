@@ -9,17 +9,12 @@ interface LayoutProps {
 export default function Layout({ children }:LayoutProps) {
     return (
         <>
-            <Head>
-                <title>hotakesBlog</title>
-            </Head>
             <div id="wrapper">
                 <a className='skip-main-contents' href='#main'>
                     Skip to main content
                 </a>
                 <Header/>
-                <main id="main">
-                    {children}
-                </main>
+                {children}
                 <Footer/>
             </div>
             <style jsx>{`

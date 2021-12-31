@@ -1,8 +1,15 @@
 import React, { ReactFragment } from 'react';
-
+import HeadWrapper from '../components/HeadWrapper';
 const About: ReactFragment = () => {
   return (
-      <>
+    <>
+      <HeadWrapper
+        title='About'
+        description='著者の紹介ページ'
+        url={__filename}
+        type='article'
+      />
+      <main id='main'>
         <h1 className="head-color">ブログ著者と自己紹介</h1>
         <h2 className="content-color">著者: HOTAKE</h2>
         <p className="content-color">
@@ -14,6 +21,7 @@ const About: ReactFragment = () => {
         <p className="content-color">
             ただ、フロントエンドに興味があり、フロントエンドに触れたいため、アクセシビリティやReact、Nextなどについて、勉強しています。
         </p>
+      </main>
     </>
   )
 }

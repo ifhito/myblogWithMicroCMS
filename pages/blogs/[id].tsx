@@ -3,7 +3,7 @@ import {getBlogBy, getBlogs} from '../../lib/getContent'
 import CodeBlock from '../../components/CodeBlock'
 import ReactMarkdown from 'react-markdown'
 import formatDate from '../../components/FormatDate'
-import Head from 'next/head'
+import HeadWrapper from '../../components/HeadWrapper';
 interface BlogItemType {
   title: string,
   date: string,
@@ -14,16 +14,24 @@ const BlogsItemPage: NextPage<BlogItemType> = (props) => {
   const { title, date, content } = props;
   return (
     <>
-      <article id="main-article"className="content-color">
-        <h1 id="title" className="head-color">{ title }</h1>
-        <p id="date" className="head-color">{ formatDate(date)}</p>
-        <hr/>
-        <ReactMarkdown
-          components={{ code: CodeBlock }}
-        >
-          {content}
-        </ReactMarkdown>
-      </article>
+      <HeadWrapper
+        title={title}
+        description={title}
+        url={__filename}
+        type='article'
+      />
+      <main id="main">
+        <article id="main-article"className="content-color">
+          <h1 id="title" className="head-color">{ title }</h1>
+          <p id="date" className="head-color">{ formatDate(date)}</p>
+          <hr/>
+          <ReactMarkdown
+            components={{ code: CodeBlock }}
+          >
+            {content}
+          </ReactMarkdown>
+        </article>
+      </main>
       <style jsx global>{`
         @media (max-width: 767px){
           h1#title {
