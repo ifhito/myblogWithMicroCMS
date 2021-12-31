@@ -16,7 +16,7 @@ const BlogsItemPage: NextPage<BlogItemType> = (props) => {
     <>
       <HeadWrapper
         title={title}
-        description={title}
+        description={content.split('。')[0]}
         url={__filename}
         type='article'
       />
