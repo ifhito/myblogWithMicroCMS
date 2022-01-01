@@ -13,6 +13,5 @@ export const getBlogBy = async (id:String) => {
         'Content-type': 'application/json',
         'X-API-KEY': X_API_KEY
       }})
-    console.log("テスト", return_content.data)
     return return_content.data
 }
