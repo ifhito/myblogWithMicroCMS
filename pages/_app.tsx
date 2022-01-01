@@ -35,6 +35,9 @@ const App = ({ Component, pageProps }:AppProps) => {
             list-style: none;
             padding-left: 0;
           }
+          #main {
+            max-width: 740px;
+          }
           .head-color {
             color: #2196F3;
           }

@@ -1,5 +1,4 @@
 import React, { ReactFragment } from 'react';
-import Head from 'next/head';
 import Header from './Header';
 import Footer from './Footer';
 interface LayoutProps {
@@ -18,9 +17,6 @@ export default function Layout({ children }:LayoutProps) {
                 <Footer/>
             </div>
             <style jsx>{`
-                #main {
-                    max-width: 740px;
-                }
                 #wrapper {
                     display: flex;
                     flex-direction: column;
