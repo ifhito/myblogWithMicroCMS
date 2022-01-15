@@ -12,7 +12,6 @@ const Blogs: NextPage = (props: any) => {
     setEndContent(endContent+5);
   }
   const handleLoadMoreKeyboard = (e:any) => {
-    console.log(e.key);
     if (lastResultRef.current && (e.key === 'Enter')){
       e.preventDefault();
       lastResultRef.current.focus();
@@ -20,7 +19,6 @@ const Blogs: NextPage = (props: any) => {
       handleClickLoadMore();
     }
   }
-  console.log('Blogs');
   return (
     <>
       <HeadWrapper
@@ -36,7 +34,6 @@ const Blogs: NextPage = (props: any) => {
             contents.slice(0,endContent).map(
               (item: { id: React.Key; },i:number) => {
                 const isLastResult = i === endContent - 1;
-                console.log(isLastResult);
                 return (<BlogItem
                   innerRef={isLastResult ? lastResultRef : undefined} 
                   items={ item } key={ item.id } 
@@ -81,7 +78,6 @@ const Blogs: NextPage = (props: any) => {
 
 export const getStaticProps = async () => {
   const data = await getBlogs();
-  console.log("コンテンツ", data.contents)
   return { props: { contents: data.contents } };
 }
 
