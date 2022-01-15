@@ -1,4 +1,4 @@
-import React, { ElementType, useRef, useState } from 'react';
+import React, {useRef, useState } from 'react';
 import { NextPage } from 'next';
 import HeadWrapper from '../components/HeadWrapper';
 import BlogItem from './BlogItem';
