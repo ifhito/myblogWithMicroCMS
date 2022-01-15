@@ -1,60 +1,26 @@
+import React, { ElementType, useRef, useState } from 'react';
 import { NextPage } from 'next';
-import Link from 'next/link'
 import HeadWrapper from '../components/HeadWrapper';
-import React, { useState } from 'react';
+import BlogItem from './BlogItem';
 import { getBlogs } from '../lib/getContent';
-import formatDate from '../components/FormatDate'
-type BlogItemType = {
-  items: any
-}
-
-const BlogItem: React.FC<BlogItemType> = props => {
-  const item = props.items;
-
-  return (
-          <>
-            <li id="page-li" className="content-color">
-              <h2>
-                <Link href="/blogs/[id]" as={`/blogs/${item.id}`} passHref>
-                  <a href="replace" className="content-color link-border-none">
-                    { item.title }
-                  </a>
-                </Link>
-              </h2>
-            <span id="date" className="content-color">{ formatDate(item.date) }</span>
-            </li>
-            <style jsx global>{`
-              h2 {
-                margin:0;
-                border-bottom: 3px solid;
-                line-height: 1.5;
-              }
-              a {
-                width:100%;
-              }
-              #page-li {
-                margin-bottom: 2.4rem;
-              }
-              @media (max-width: 767px){
-                // #date {
-                //   font-size: 20px
-                // }
-                // h2 {
-                //   margin:0;
-                //   font-size: 50px;
-                // }
-              }
-            `}</style>
-          </>
-  )
-}
 
 const Blogs: NextPage = (props: any) => {
   const { contents } = props;
   const [endContent, setEndContent] = useState(5);
-  const handlerClick = () => {
-    setEndContent(endContent+5)
+  const lastResultRef = useRef<HTMLAnchorElement>(null);
+  const handleClickLoadMore = () => {
+    setEndContent(endContent+5);
   }
+  const handleLoadMoreKeyboard = (e:any) => {
+    console.log(e.key);
+    if (lastResultRef.current && (e.key === 'Enter')){
+      e.preventDefault();
+      lastResultRef.current.focus();
+      lastResultRef.current.blur();
+      handleClickLoadMore();
+    }
+  }
+  console.log('Blogs');
   return (
     <>
       <HeadWrapper
@@ -67,13 +33,21 @@ const Blogs: NextPage = (props: any) => {
         <div className="blog-container">
           <ul>
           {
-            contents.slice(0,endContent).map( (item: { id: React.Key; }) => <BlogItem items={ item } key={ item.id } />)
+            contents.slice(0,endContent).map(
+              (item: { id: React.Key; },i:number) => {
+                const isLastResult = i === endContent - 1;
+                console.log(isLastResult);
+                return (<BlogItem
+                  innerRef={isLastResult ? lastResultRef : undefined} 
+                  items={ item } key={ item.id } 
+                />);
+              })
           }
           </ul>
           {
             contents.length > endContent ? (
               <div id="button-wrapper">
-                <button type="button" id="more-button" onClick={handlerClick}>もっと見る</button>
+                <button type="button" id="more-button" onClick={handleClickLoadMore} onKeyDown={handleLoadMoreKeyboard}>もっと見る</button>
               </div>
             ):''
           }
