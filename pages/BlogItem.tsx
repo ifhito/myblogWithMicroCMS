@@ -40,7 +40,7 @@ const BlogItem: React.FC<BlogTitleItemType> = ({
                         <span key={category.id} >
                             {i==0?"":"/"}
                             <Link href={`/categories/${category.categoryId}`} passHref>
-                                <a href="replace" title={`クリックすると${category.categoryName}カテゴリーに飛びます。`} className='button-to-link'>{category.categoryName}</a>
+                                <a href="replace" title={`クリックすると${category.categoryName}カテゴリーに飛びます。`}>{category.categoryName}</a>
                             </Link>
                         </span>
                         )}
@@ -63,26 +63,7 @@ const BlogItem: React.FC<BlogTitleItemType> = ({
                     display:flex;
                     justify-content: space-between;
                 }
-                .button-to-link {
-                    background: none!important;
-                    border: none;
-                    padding: 0!important;
-                    /*optional*/
-                    font-family: arial, sans-serif;
-                    /*input has OS specific font-family*/
-                    color: #069;
-                    text-decoration: underline;
-                    cursor: pointer;
-                    font-size: 1.6rem;
-                }
                 @media (max-width: 767px){
-                    // #date {
-                    //   font-size: 20px
-                    // }
-                    // h2 {
-                    //   margin:0;
-                    //   font-size: 50px;
-                    // }
                     .sub-data {
                         display:flex;
                         flex-direction: column;
