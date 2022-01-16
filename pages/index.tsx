@@ -9,7 +9,6 @@ const Blogs: NextPage = (props: any) => {
   const { contents, categories } = props;
   const [endContent, setEndContent] = useState(5);
   const lastResultRef = useRef<HTMLAnchorElement>(null);
-  const router = useRouter();
   const handleClickLoadMore = () => {
     setEndContent(endContent+5);
   };
@@ -19,13 +18,6 @@ const Blogs: NextPage = (props: any) => {
       lastResultRef.current.focus();
       lastResultRef.current.blur();
       handleClickLoadMore();
-    }
-  };
-  const handleSetContents = (e:any)=>{
-    if(e.target.value === 'all'){
-      router.push('/');
-    }else{
-      router.push('/categories/'+e.target.value);
     }
   };
   
@@ -41,7 +33,6 @@ const Blogs: NextPage = (props: any) => {
         <SelectCategories
           categories={categories}
           category={'all'}
-          handleSetContents={handleSetContents}
         />
         <div className="blog-container">
           <ul>
@@ -54,7 +45,6 @@ const Blogs: NextPage = (props: any) => {
                     innerRef={isLastResult ? lastResultRef : undefined}
                     items={ item }
                     key={ item.id }
-                    handleSetContents={handleSetContents}
                   />
                 );
               })
