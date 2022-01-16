@@ -7,7 +7,8 @@ type selectCategoriesType = {
 }
 const SelectCategories:React.FC<selectCategoriesType> = ({categories=[], category='', handleSetContents}) => (
     <div className='wrapper-select'>
-        <select className="category-select" value={category} onChange={handleSetContents}>
+        <label htmlFor="category-select" className='content-color'>カテゴリー選択: </label>
+        <select id="category-select" className="category-select" value={category} onChange={handleSetContents}>
             <option value='all'>All</option>
             {categories.contents.map((category:any) => <option key={category.id} value={category.categoryId}>{category.categoryName}</option>)}
         </select>
