@@ -25,6 +25,7 @@ const Blogs: NextPage = (props: any) => {
   const handleSetContents = (e:any)=>{
     if(e.target.value === 'all'){
       category.current = e.target.value;
+      window.location.hash = '';
       setCurrentContents(contents);
     }else{
       category.current = e.target.value;

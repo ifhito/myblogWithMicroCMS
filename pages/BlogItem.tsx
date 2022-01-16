@@ -37,8 +37,8 @@ const BlogItem: React.FC<BlogTitleItemType> = ({
                 <div id="sub-data" className="sub-data">
                     <span id="date" className="content-color">{ formatDate(items.date) }</span>
                     <span id="categories" className="categories">
-                        Categories : 
-                        {items.categories.map((category:any,i:number) => 
+                        Categories：
+                        {items.categories.map((category:any, i:number) => 
                         <span key={category.id} >
                             {i==0?"":"/"}
                             <button className='button-to-link' value={category.categoryId} onClick={handleSetContents}>

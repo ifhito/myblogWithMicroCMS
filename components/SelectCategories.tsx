@@ -7,7 +7,7 @@ type selectCategoriesType = {
 }
 const SelectCategories:React.FC<selectCategoriesType> = ({categories=[], category='', handleSetContents}) => (
     <div className='wrapper-select'>
-        <label htmlFor="category-select" className='content-color'>カテゴリー選択: </label>
+        <label htmlFor="category-select" className='content-color category-select-label'>カテゴリー選択：</label>
         <select id="category-select" className="category-select" value={category} onChange={handleSetContents}>
             <option value='all'>All</option>
             {categories.contents.map((category:any) => <option key={category.id} value={category.categoryId}>{category.categoryName}</option>)}
@@ -16,12 +16,23 @@ const SelectCategories:React.FC<selectCategoriesType> = ({categories=[], categor
             .wrapper-select {
                 text-align: end;
             }
-            @media (max-width: 767px){
-            .category-select {
-                width: 100%;
-                height: 3rem;
-                font-size: 2rem;
+            .category-select-label {
+                font-size: 1.5rem;
             }
+            .category-select {
+                height: 2.5rem;
+                font-size: 1.5rem;
+            }
+            .category-select {
+                background-color: transparent;
+                color: #CDDC39;
+                border: none;
+                border-bottom: 2px solid #CDDC39;
+            }
+            @media (max-width: 767px){
+                .wrapper-select {
+                    text-align: center;
+                }
             }
         `}</style>
     </div>
