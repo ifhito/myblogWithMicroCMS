@@ -21,13 +21,6 @@ const Blogs: NextPage = (props: any) => {
       handleClickLoadMore();
     }
   };
-  const handleSetContents = (e:any)=>{
-    if(e.target.value === 'all'){
-      router.push('/')
-    }else{
-      router.push('/categories/'+e.target.value)
-    }
-  };
   
   return (
     <>
@@ -41,7 +34,6 @@ const Blogs: NextPage = (props: any) => {
         <SelectCategories
           categories={categories}
           category={categoryData}
-          handleSetContents={handleSetContents}
         />
         <div className="blog-container">
           <ul>
@@ -54,7 +46,6 @@ const Blogs: NextPage = (props: any) => {
                     innerRef={isLastResult ? lastResultRef : undefined}
                     items={ item }
                     key={ item.id }
-                    handleSetContents={handleSetContents}
                   />
                 );
               })
@@ -115,7 +106,6 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (category:{params:{id:string}}) => {
     const currentCategory = category.params.id;
     const data = await getBlogs();
-    console.log(category);
     const categoriesData = await getCategories();
     const newContents = data.contents.filter((content:any) => content.categories.map((category:any)=> category.categoryId).includes(currentCategory));
     return { props: { contents: newContents, categories: categoriesData.contents, categoryData:currentCategory } };
