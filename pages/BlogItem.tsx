@@ -41,7 +41,7 @@ const BlogItem: React.FC<BlogTitleItemType> = ({
                         {items.categories.map((category:any, i:number) => 
                         <span key={category.id} >
                             {i==0?"":"/"}
-                            <button className='button-to-link' value={category.categoryId} onClick={handleSetContents}>
+                            <button title={'クリックすると'+category.categoryName+'カテゴリーに飛びます。'} className='button-to-link' value={category.categoryId} onClick={handleSetContents}>
                                 {category.categoryName}
                             </button>
                         </span>
