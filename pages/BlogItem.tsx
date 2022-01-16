@@ -1,9 +1,10 @@
-import React, { RefObject} from 'react';
+import React, { CSSProperties, RefObject} from 'react';
 import formatDate from '../components/FormatDate'
 import Link from 'next/link'
 type BlogTitleItemType = {
     items: any;
     innerRef: RefObject<HTMLAnchorElement> | undefined;
+    handleSetContents: (e:any) => void;
 }
   
 const BlogItem: React.FC<BlogTitleItemType> = ({
@@ -15,23 +16,40 @@ const BlogItem: React.FC<BlogTitleItemType> = ({
         revisedAt: 'dummy',
         title: 'dummy',
         date: 'dummy',
-        content: 'dummy'
+        content: 'dummy',
+        categories:[
+            {'categoryId':'dummy', 'categoryName':'dummy'},
+        ]
     }, 
-    innerRef=undefined
+    innerRef=undefined,
+    handleSetContents=(e)=>{}
 }) => {
     return (
             <>
-                <li id="page-li" className="content-color">
+                <li key={items.id} id="page-li" className="content-color">
                 <h2>
                     <Link href="/blogs/[id]" as={`/blogs/${items.id}`} passHref>
-                    <a ref={innerRef} href="replace" className="content-color link-border-none">
-                        { items.title }
-                    </a>
+                        <a ref={innerRef} href="replace" className="content-color link-border-none">
+                            { items.title }
+                        </a>
                     </Link>
                 </h2>
-                <span id="date" className="content-color">{ formatDate(items.date) }</span>
+                <div id="sub-data" className="sub-data">
+                    <span id="date" className="content-color">{ formatDate(items.date) }</span>
+                    <span id="categories" className="categories">
+                        Categories : 
+                        {items.categories.map((category:any,i:number) => 
+                        <span key={category.id} >
+                            {i==0?"":"/"}
+                            <button className='button-to-link' value={category.categoryId} onClick={handleSetContents}>
+                                {category.categoryName}
+                            </button>
+                        </span>
+                        )}
+                    </span>
+                </div>
                 </li>
-                <style jsx global>{`
+                <style jsx>{`
                 h2 {
                     margin:0;
                     border-bottom: 3px solid;
@@ -43,6 +61,22 @@ const BlogItem: React.FC<BlogTitleItemType> = ({
                 #page-li {
                     margin-bottom: 2.4rem;
                 }
+                .sub-data {
+                    display:flex;
+                    justify-content: space-between;
+                }
+                .button-to-link {
+                    background: none!important;
+                    border: none;
+                    padding: 0!important;
+                    /*optional*/
+                    font-family: arial, sans-serif;
+                    /*input has OS specific font-family*/
+                    color: #069;
+                    text-decoration: underline;
+                    cursor: pointer;
+                    font-size: 1.6rem;
+                }
                 @media (max-width: 767px){
                     // #date {
                     //   font-size: 20px
@@ -51,6 +85,10 @@ const BlogItem: React.FC<BlogTitleItemType> = ({
                     //   margin:0;
                     //   font-size: 50px;
                     // }
+                    .sub-data {
+                        display:flex;
+                        flex-direction: column;
+                    }
                 }
                 `}</style>
             </>

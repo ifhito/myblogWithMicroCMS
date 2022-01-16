@@ -32,7 +32,7 @@ const BlogsItemPage: NextPage<BlogItemType> = (props) => {
           </ReactMarkdown>
         </article>
       </main>
-      <style jsx global>{`
+      <style jsx>{`
         @media (max-width: 767px){
           h1#title {
             margin-bottom:0;

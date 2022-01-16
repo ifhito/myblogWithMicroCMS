@@ -15,3 +15,11 @@ export const getBlogBy = async (id:String) => {
       }})
     return return_content.data
 }
+
+export const getCategories = async () => {
+  const return_categories = await axios.get('https://hotakeblog.microcms.io/api/v1/category', { headers: {
+    'Content-type': 'application/json',
+    'X-API-KEY': X_API_KEY
+  }})
+  return return_categories.data;
+}

@@ -22,7 +22,7 @@ const Link_: ReactFragment = () => {
                         </li>
                     ))}
                 </ul>
-                <style jsx global>{`
+                <style jsx>{`
                     #url-link {
                         margin-bottom: 20px;
                     }
