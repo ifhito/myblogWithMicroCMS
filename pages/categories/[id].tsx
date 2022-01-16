@@ -1,15 +1,15 @@
 import React, {useRef, useState } from 'react';
 import { NextPage } from 'next';
-import HeadWrapper from '../components/HeadWrapper';
-import BlogItem from './BlogItem';
-import { getBlogs, getCategories } from '../lib/getContent';
-import SelectCategories from '../components/SelectCategories';
+import HeadWrapper from '../../components/HeadWrapper';
+import BlogItem from '../BlogItem';
+import { getBlogs, getCategories } from '../../lib/getContent';
+import SelectCategories from '../../components/SelectCategories';
 import { useRouter } from 'next/router';
 const Blogs: NextPage = (props: any) => {
-  const { contents, categories } = props;
+  const { contents, categories, categoryData } = props;
   const [endContent, setEndContent] = useState(5);
-  const lastResultRef = useRef<HTMLAnchorElement>(null);
   const router = useRouter();
+  const lastResultRef = useRef<HTMLAnchorElement>(null);
   const handleClickLoadMore = () => {
     setEndContent(endContent+5);
   };
@@ -23,9 +23,9 @@ const Blogs: NextPage = (props: any) => {
   };
   const handleSetContents = (e:any)=>{
     if(e.target.value === 'all'){
-      router.push('/');
+      router.push('/')
     }else{
-      router.push('/categories/'+e.target.value);
+      router.push('/categories/'+e.target.value)
     }
   };
   
@@ -40,7 +40,7 @@ const Blogs: NextPage = (props: any) => {
       <main id='main'>
         <SelectCategories
           categories={categories}
-          category={'all'}
+          category={categoryData}
           handleSetContents={handleSetContents}
         />
         <div className="blog-container">
@@ -60,6 +60,7 @@ const Blogs: NextPage = (props: any) => {
               })
           }
           </ul>
+          
           {
             contents.length > endContent ? (
               <div id="button-wrapper">
@@ -102,9 +103,21 @@ const Blogs: NextPage = (props: any) => {
   )
 }
 
-export const getStaticProps = async () => {
-  const data = await getBlogs();
-  const categoriesData = await getCategories();
-  return { props: { contents: data.contents,categories: categoriesData.contents } };
+export const getStaticPaths = async () => {
+    const data = await getCategories();
+    const paths = data.contents.map((item:{categoryId:string}) => `/categories/${item.categoryId}`);
+    return {
+      paths,
+      fallback: false
+    }
+  }
+
+export const getStaticProps = async (category:{params:{id:string}}) => {
+    const currentCategory = category.params.id;
+    const data = await getBlogs();
+    console.log(category);
+    const categoriesData = await getCategories();
+    const newContents = data.contents.filter((content:any) => content.categories.map((category:any)=> category.categoryId).includes(currentCategory));
+    return { props: { contents: newContents, categories: categoriesData.contents, categoryData:currentCategory } };
 }
 export default Blogs;
