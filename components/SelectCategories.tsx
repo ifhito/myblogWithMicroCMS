@@ -30,8 +30,6 @@ const SelectCategories:React.FC<selectCategoriesType> = ({categories=[], categor
                 .category-select {
                     height: 2.5rem;
                     font-size: 1.5rem;
-                }
-                .category-select {
                     background-color: transparent;
                     color: #CDDC39;
                     border: none;
@@ -39,7 +37,17 @@ const SelectCategories:React.FC<selectCategoriesType> = ({categories=[], categor
                 }
                 @media (max-width: 767px){
                     .wrapper-select {
-                        text-align: center;
+                        display: flex;
+                        flex-direction: column;
+                        margin-bottom: 3rem;
+                    }
+                    .category-select-label {
+                        text-align: start;
+                        font-size: 1.5rem;
+                    }
+                    .category-select {
+                        height: 3rem;
+                        font-size: 2.5rem;                        
                     }
                 }
             `}</style>

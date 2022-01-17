@@ -1,5 +1,5 @@
 import React, { CSSProperties, RefObject} from 'react';
-import formatDate from '../components/FormatDate';
+import formatDate from './FormatDate';
 import Link from 'next/link';
 type BlogTitleItemType = {
     items: any;

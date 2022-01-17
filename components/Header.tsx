@@ -6,9 +6,7 @@ export default function Header() {
     return(
         <header>
             <h1 id="head-center">
-                <Link href="/" passHref>
-                    <a href="replace" id="title-header"><span className="head-color">HOTAKES BLOG</span></a>
-                </Link>
+                <span className="head-color">HOTAKES BLOG</span>
             </h1>
             <Nav />
             <style jsx>{`
