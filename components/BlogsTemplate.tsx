@@ -11,6 +11,7 @@ type BlogsTemplateType = {
 }
 const BlogsTemplate = ({contents, categories, categoryData}:BlogsTemplateType) => {
     const [endContent, setEndContent] = useState(5);
+    const categoryName = categoryData === 'all' ? '' : categories.filter((category:{categoryId:'string';categoryName: 'string';}) => category.categoryId === categoryData)[0].categoryName;
     const lastResultRef = useRef<HTMLAnchorElement>(null);
     const handleClickLoadMore = () => {
         setEndContent(endContent+5);
@@ -26,8 +27,8 @@ const BlogsTemplate = ({contents, categories, categoryData}:BlogsTemplateType) =
   return (
     <>
       <HeadWrapper
-        title='Contents'
-        description='ブログコンテンツのリストページ'
+        title={categoryData === 'all' ? 'Home' : `${categoryName}カテゴリー`}
+        description={categoryData === 'all' ? 'このブログのホームです' : `${categoryName}カテゴリーのコンテンツのリストページです`}
         url={__filename}
         type='blog'
       />
