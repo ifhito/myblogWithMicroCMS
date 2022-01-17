@@ -46,8 +46,8 @@ const SelectCategories:React.FC<selectCategoriesType> = ({categories=[], categor
                         font-size: 1.5rem;
                     }
                     .category-select {
-                        height: 3rem;
-                        font-size: 2.5rem;                        
+                        height: 2.5rem;
+                        font-size: 2rem;                        
                     }
                 }
             `}</style>
