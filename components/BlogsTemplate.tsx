@@ -82,13 +82,6 @@ const BlogsTemplate = ({contents, categories, categoryData}:BlogsTemplateType) =
           #button-wrapper {
             text-align:center;
           }
-          @media (max-width: 767px){
-            .category-select {
-              width: 100%;
-              height: 3rem;
-              font-size: 2rem;
-            }
-          }
         `}</style>
       </main>
     </>
