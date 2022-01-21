@@ -1,5 +1,4 @@
-import React, { ReactFragment } from 'react';
-import Link from 'next/dist/client/link';
+import React from 'react';
 import Nav from './nav';
 
 export default function Header() {

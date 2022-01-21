@@ -2,8 +2,14 @@ import React from 'react';
 import { NextPage } from 'next';
 import { getBlogs, getCategories } from '../lib/getContent';
 import BlogsTemplate from '../components/BlogsTemplate';
-const Blogs: NextPage = (props: any) => {
-  const { contents, categories } = props;
+import { BlogItemType, CategoryType } from '../types/index';
+
+
+type PropsType = {
+  contents: BlogItemType[];
+  categories: CategoryType[];
+}
+const Blogs: NextPage<PropsType> = ({ contents, categories }) => {
   
   return (
     <BlogsTemplate

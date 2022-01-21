@@ -1,11 +1,12 @@
-import React, { CSSProperties, RefObject} from 'react';
+import React, {RefObject} from 'react';
 import formatDate from './FormatDate';
 import Link from 'next/link';
+import { BlogItemType, CategoryType } from '../types/index';
+
 type BlogTitleItemType = {
-    items: any;
+    items: BlogItemType;
     innerRef: RefObject<HTMLAnchorElement> | undefined;
 }
-  
 const BlogItem: React.FC<BlogTitleItemType> = ({
     items={
         id: 'dummy',
@@ -17,7 +18,15 @@ const BlogItem: React.FC<BlogTitleItemType> = ({
         date: 'dummy',
         content: 'dummy',
         categories:[
-            {'categoryId':'dummy', 'categoryName':'dummy'},
+            {
+                'id': 'dummy',
+                'createdAt': 'dummy',
+                'updatedAt': 'dummy',
+                'publishedAt': 'dummy',
+                'revisedAt': 'dummy',
+                'categoryId': 'dummy',
+                'categoryName': 'dummy'
+            },
         ]
     }, 
     innerRef=undefined
@@ -36,7 +45,7 @@ const BlogItem: React.FC<BlogTitleItemType> = ({
                     <span id="date" className="content-color">{ formatDate(items.date) }</span>
                     <span id="categories" className="categories">
                         Categories：
-                        {items.categories.map((category:any, i:number) => 
+                        {items.categories.map((category:CategoryType,i:number) => 
                         <span key={category.id} >
                             {i==0?"":"/"}
                             <Link href={`/categories/${category.categoryId}`} passHref>

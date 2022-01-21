@@ -1,12 +1,14 @@
-import React, { RefObject} from 'react';
+import React, { ChangeEvent} from 'react';
 import {useRouter} from 'next/router';
+import { CategoryType } from '../types/index';
+
 type selectCategoriesType = {
-    categories: any;
+    categories: CategoryType[];
     category: string;
 }
 const SelectCategories:React.FC<selectCategoriesType> = ({categories=[], category=''}) => {
     const router = useRouter();
-    const handleSetContents = (e:any)=>{
+    const handleSetContents = (e: ChangeEvent<HTMLSelectElement>)=>{
         if(e.target.value === 'all'){
           router.push('/');
         }else{
@@ -18,7 +20,7 @@ const SelectCategories:React.FC<selectCategoriesType> = ({categories=[], categor
             <label htmlFor="category-select" className='content-color category-select-label'>カテゴリー選択：</label>
             <select id="category-select" className="category-select" value={category} onChange={handleSetContents}>
                 <option value='all'>All</option>
-                {categories.map((category:any) => <option key={category.id} value={category.categoryId}>{category.categoryName}</option>)}
+                {categories.map((category:CategoryType) => <option key={category.id} value={category.categoryId}>{category.categoryName}</option>)}
             </select>
             <style jsx>{`
                 .wrapper-select {

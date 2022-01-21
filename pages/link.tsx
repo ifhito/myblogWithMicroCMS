@@ -1,6 +1,7 @@
 import React, { ReactFragment } from 'react';
 import Link from "next/link";
 import HeadWrapper from '../components/HeadWrapper';
+
 const Link_: ReactFragment = () => {
     const urls = ['https://twitter.com/ifhito', 'https://note.com/ifhito', 'https://github.com/ifhito', 'https://zenn.dev/ifhito', 'https://bookmeter.com/users/991028']
     return (
