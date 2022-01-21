@@ -1,24 +1,24 @@
-import React, {useRef, useState } from 'react';
-import { NextPage } from 'next';
+import React, {KeyboardEvent, useRef, useState } from 'react';
 import HeadWrapper from './HeadWrapper';
 import BlogItem from './BlogItem';
 import SelectCategories from './SelectCategories';
-import { useRouter } from 'next/router';
+import { BlogItemType, CategoryType } from '../types/index';
+
 type BlogsTemplateType = {
-    contents: any;
-    categories: any;
+    contents: BlogItemType[];
+    categories: CategoryType[];
     categoryData: string;
 }
 const BlogsTemplate = ({contents, categories, categoryData}:BlogsTemplateType) => {
     const [endContent, setEndContent] = useState(5);
-    const categoryName = categoryData === 'all' ? '' : categories.filter((category:{categoryId:'string';categoryName: 'string';}) => category.categoryId === categoryData)[0].categoryName;
+    const categoryName = categoryData === 'all' ? '' : categories.filter((category:CategoryType) => category.categoryId === categoryData)[0].categoryName;
     const lastResultRef = useRef<HTMLAnchorElement>(null);
     const handleClickLoadMore = () => {
         setEndContent(endContent+5);
     };
-    const handleLoadMoreKeyboard = (e:any) => {
-        if (lastResultRef.current && (e.key === 'Enter')){
-        e.preventDefault();
+    const handleLoadMoreKeyboard = (event: KeyboardEvent<HTMLButtonElement>) => {
+        if (lastResultRef.current && (event.key === 'Enter')){
+        event.preventDefault();
         lastResultRef.current.focus();
         lastResultRef.current.blur();
         handleClickLoadMore();
@@ -41,7 +41,7 @@ const BlogsTemplate = ({contents, categories, categoryData}:BlogsTemplateType) =
           <ul>
           {
             contents.slice(0,endContent).map(
-              (item: { id: React.Key; categories:{category:any}[]; }, i:number) => {
+              (item: BlogItemType, i:number) => {
                 const isLastResult = i === endContent - 1;
                 return (
                   <BlogItem

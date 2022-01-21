@@ -4,6 +4,7 @@ import CodeBlock from '../../components/CodeBlock'
 import ReactMarkdown from 'react-markdown'
 import formatDate from '../../components/FormatDate'
 import HeadWrapper from '../../components/HeadWrapper';
+
 interface BlogItemType {
   title: string,
   date: string,
@@ -55,7 +56,7 @@ export const getStaticPaths = async () => {
   }
 }
 
-export const getStaticProps = async ({ params }:any) => {
+export const getStaticProps = async ({ params }:{params: {id:string}}) => {
   const id = params.id;
   const data = await getBlogBy(id);
   return { props: data}

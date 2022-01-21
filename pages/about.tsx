@@ -1,5 +1,6 @@
 import React, { ReactFragment } from 'react';
 import HeadWrapper from '../components/HeadWrapper';
+
 const About: ReactFragment = () => {
   return (
     <>

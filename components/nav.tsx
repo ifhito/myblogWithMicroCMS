@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+
 const Nav: React.FC = () => {
     const links:{pass:string,text:string}[] = [{'pass':'/','text':'HOME'},{'pass':'/about','text':'ABOUT'}, {'pass':'/link','text':'LINK'}]
     return (
