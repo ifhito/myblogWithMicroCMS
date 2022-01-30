@@ -22,7 +22,35 @@ const About: ReactFragment = () => {
         <p className="content-color">
             ただ、フロントエンドに興味があり、フロントエンドに触れたいため、アクセシビリティやReact、Nextなどについて、勉強しています。
         </p>
+        <h2 className="content-color">技術スタックなど</h2>
+        <h3 className="content-color">言語</h3>
+        <ul className="content-color list-ul">
+          <li>HTML/CSS</li>
+          <li>JavaScript</li>
+          <li>TypeScript</li>
+          <li>Python</li>
+          <li>Rust</li>
+          <li>PHP</li>
+        </ul>
+        <h3 className="content-color">ライブラリ</h3>
+        <ul className="content-color list-ul">
+          <li>React</li>
+          <li>Flask</li>
+        </ul>
+        <h3 className="content-color">その他</h3>
+        <ul className="content-color list-ul">
+          <li>webpack</li>
+          <li>Terraform</li>
+          <li>Docker</li>
+          <li>AWS</li>
+          <li>SQL</li>
+        </ul>
       </main>
+      <style jsx>{`
+        .list-ul {
+            list-style: inside;
+        }
+      `}</style>
     </>
   )
 }
