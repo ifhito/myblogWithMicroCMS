@@ -19,13 +19,13 @@ const About: ReactFragment = () => {
         <p className='content-color'>
           実務では、運用でインフラ系Terraform、AWS、ニフクラ、サーバー内作業)をやったりRailsアプケーションの改修作業を行うなどしています。
         </p>
-        <p>
+        <p className='content-color'>
           最近はやっとVue.jsやReactを業務で触れたりするようになりましたが、社内ツール作成で使うだけです。
         </p>
         <p className='content-color'>
           フロントエンドに興味があり、フロントエンドに触れたいため、アクセシビリティやReact、Nextなどについて、個人では勉強しています。
         </p>
-        <p>
+        <p className='content-color'>
           アクセシビリティがやりたくて社内でオーサリングプラクティスの輪読会を開きましたが、全く人気がなく、3人しか参加者が集まりませんでした(泣)。普通にアクセシビリティ勉強会にしたら人が来たのかななどと思ったりもします。ただ、アクセシビリティには実践がないとなとも思うのでどうすれば良いのかと思っています。
         </p>
         <h2 className='content-color'>技術スタックなど</h2>
