@@ -20,7 +20,7 @@ const Link_: ReactFragment = () => {
       />
       <main id='main'>
         <h1 className='head-color'>その他リンク</h1>
-        <ul>
+        <ul id='url-ul'>
           {urls.map((url) => (
             <li id='url-link' key={url.split(".")[0].split("//")[1]}>
               <Link href={url} passHref>
@@ -34,6 +34,10 @@ const Link_: ReactFragment = () => {
         <style jsx>{`
           #url-link {
             margin-bottom: 20px;
+          }
+          #url-ul{
+            list-style: none;
+            padding-left: 0;
           }
         `}</style>
       </main>
