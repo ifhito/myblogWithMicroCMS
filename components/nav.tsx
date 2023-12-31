@@ -27,6 +27,8 @@ const Nav: React.FC = () => {
                     justify-content: space-evenly;
                     text-align: center;
                     margin-bottom: 3rem;
+                    list-style: none;
+                    padding-left: 0;
                 }
                 @media (max-width: 767px){
                     .link {
