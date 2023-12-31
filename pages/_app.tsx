@@ -29,6 +29,9 @@ const App = ({ Component, pageProps }:AppProps) => {
           h2 {
             font-size: calc(2rem + ((1vw - 0.64rem) * 0.7143));
           }
+          h4 {
+            border-bottom: 1px solid #CDDC39;
+          }
           li {
             font-size: 1.6rem;
           }
