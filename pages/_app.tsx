@@ -36,8 +36,7 @@ const App = ({ Component, pageProps }:AppProps) => {
             font-size: 1.6rem;
           }
           ul {
-            list-style: none;
-            padding-left: 0;
+            padding-left: 1.5rem;
           }
           #main {
             max-width: 740px;
