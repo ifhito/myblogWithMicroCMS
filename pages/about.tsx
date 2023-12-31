@@ -20,6 +20,9 @@ const About: ReactFragment = () => {
           実務では、運用でインフラ系Terraform、AWS、ニフクラ、サーバー内作業)をやったりRailsアプケーションの改修作業を行うなどしています。
         </p>
         <p className='content-color'>
+          また、最近では刷新が始まり、ハイレベルアーキテクチャを考えたり、刷新後のシステムにドメイン駆動設計を取り入れようと頑張っています。
+        </p>
+        <p className='content-color'>
           最近はやっとVue.jsやReactを業務で触れたりするようになりましたが、社内ツール作成で使うだけです。
         </p>
         <p className='content-color'>
@@ -55,6 +58,7 @@ const About: ReactFragment = () => {
           <li>Docker</li>
           <li>AWS</li>
           <li>SQL</li>
+          <li>ドメイン駆動設計</li>
         </ul>
       </main>
       <style jsx>{`
