@@ -38,7 +38,7 @@ const BlogsTemplate = ({contents, categories, categoryData}:BlogsTemplateType) =
           category={categoryData}
         />
         <div className="blog-container">
-          <ul>
+          <ul id="container-ul">
           {
             contents.slice(0,endContent).map(
               (item: BlogItemType, i:number) => {
@@ -82,6 +82,10 @@ const BlogsTemplate = ({contents, categories, categoryData}:BlogsTemplateType) =
           }
           #button-wrapper {
             text-align:center;
+          }
+          #container-ul {
+            list-style: none;
+            padding-left: 0;
           }
         `}</style>
       </main>
