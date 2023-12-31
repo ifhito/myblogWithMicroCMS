@@ -5,8 +5,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next build && next start",
+    "build": "NODE_OPTIONS='--openssl-legacy-provider' next build",
+    "start": "NODE_OPTIONS='--openssl-legacy-provider' next build && next start",
     "lint": "next lint"
   },
   "dependencies": {
