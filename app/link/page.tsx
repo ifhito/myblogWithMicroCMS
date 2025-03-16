@@ -28,7 +28,7 @@ export const metadata = {
   },
 };
 
-const Link_: ReactFragment = () => {
+export default function Link_() {
   const urls = [
     "https://twitter.com/ifhito",
     "https://note.com/ifhito",
@@ -53,5 +53,3 @@ const Link_: ReactFragment = () => {
     </>
   );
 };
-
-export default Link_;

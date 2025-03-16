@@ -26,7 +26,7 @@ export const metadata = {
   },
 };
 
-const About: ReactFragment = () => {
+export default function About() {
   return (
     <>
       <main id='main'>
@@ -83,5 +83,3 @@ const About: ReactFragment = () => {
     </>
   );
 };
-
-export default About;
