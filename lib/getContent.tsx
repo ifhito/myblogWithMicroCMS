@@ -8,8 +8,8 @@ export const getBlogs = async () => {
     return return_content.data
 }
 
-export const getBlogBy = async (id:String) => {
-    const return_content = await axios.get('https://hotakeblog.microcms.io/api/v1/blogs/' + String(id), { headers: {
+export const getBlogBy = async (id: string) => {
+    const return_content = await axios.get(`https://hotakeblog.microcms.io/api/v1/blogs/${id}`, { headers: {
         'Content-type': 'application/json',
         'X-API-KEY': X_API_KEY
       }})

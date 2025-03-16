@@ -5,6 +5,7 @@ import {
   CodeComponent,
   ReactMarkdownNames,
 } from 'react-markdown/lib/ast-to-react';
+import styles from './CodeBlock.module.css';
 
 const CodeBlock: CodeComponent | ReactMarkdownNames = ({
     inline,
@@ -13,23 +14,10 @@ const CodeBlock: CodeComponent | ReactMarkdownNames = ({
   }) => {
     const match = /language-(\w+)/.exec(className || '')
     return !inline && match ? (
-      <div id="code-style">
+      <div className={styles.codeBlock}>
         <SyntaxHighlighter style={materialOceanic} language={match[1]} PreTag="div">
             {String(children).replace(/\n$/, '')}
         </SyntaxHighlighter>
-        <style jsx>{`
-          #code-style {
-            font-size: 1.6rem;
-            width: 100%;
-          }
-          @media (max-width: 767px){
-            #code-style {
-              margin-left: auto;
-              margin-right: auto;
-            }
-          }
-          
-          `}</style>
       </div>
     ) : (
       <code className={className}>
