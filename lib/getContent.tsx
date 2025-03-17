@@ -1,25 +1,54 @@
 import axios from "axios";
-const X_API_KEY: string = process.env.X_API_KEY || '';
-export const getBlogs = async () => {
-    const return_content = await axios.get('https://hotakeblog.microcms.io/api/v1/blogs', { headers: {
-        'Content-type': 'application/json',
-        'X-API-KEY': X_API_KEY
-      }})
-    return return_content.data
+
+const X_API_KEY: string | undefined = process.env.X_API_KEY;
+
+if (!X_API_KEY) {
+  throw new Error("X_API_KEY is not defined. Please set it in your environment variables.");
 }
 
-export const getBlogBy = async (id: string) => {
-    const return_content = await axios.get(`https://hotakeblog.microcms.io/api/v1/blogs/${id}`, { headers: {
-        'Content-type': 'application/json',
-        'X-API-KEY': X_API_KEY
-      }})
-    return return_content.data
+const API_BASE_URL = "https://hotakeblog.microcms.io/api/v1";
+
+export const getBlogs = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/blogs`, {
+      headers: {
+        "Content-type": "application/json",
+        "X-API-KEY": X_API_KEY,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Failed to fetch blogs:", error);
+    return null;
+  }
+};
+
+export async function getBlogBy(id: string) {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/blogs/${id}`, {
+      headers: {
+        "Content-type": "application/json",
+        "X-API-KEY": X_API_KEY,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error(`Failed to fetch blog post with ID ${id}:`, error);
+    throw new Error(`Blog post with ID ${id} not found.`);
+  }
 }
 
 export const getCategories = async () => {
-  const return_categories = await axios.get('https://hotakeblog.microcms.io/api/v1/category', { headers: {
-    'Content-type': 'application/json',
-    'X-API-KEY': X_API_KEY
-  }})
-  return return_categories.data;
-}
+  try {
+    const response = await axios.get(`${API_BASE_URL}/category`, {
+      headers: {
+        "Content-type": "application/json",
+        "X-API-KEY": X_API_KEY,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Failed to fetch categories:", error);
+    return null;
+  }
+};

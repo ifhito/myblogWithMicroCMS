@@ -1,9 +1,8 @@
-import React, { ReactFragment } from "react";
+import React from "react";
 import styles from "./about.module.css";
 export const metadata = {
   title: `HotakesBlog -About-`,
   description: "著者の紹介ページ",
-  viewport: "width=device-width, initial-scale=1.0",
   openGraph: {
     url: `https://hotakesblog.vercel.app/about`,
     title: `HotakesBlog - About -`,
@@ -24,6 +23,11 @@ export const metadata = {
     description: "著者の紹介ページ",
     images: [`https://og-image-five-swart.vercel.app/HotakesBlog -About-.png`],
   },
+};
+// Next.js 15 以降では viewport を個別にエクスポート
+export const viewport = {
+  width: "device-width",
+  initialScale: 1.0,
 };
 
 export default function About() {

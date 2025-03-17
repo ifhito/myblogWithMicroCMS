@@ -17,13 +17,13 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }) {
-  const currentCategory = (await Promise.resolve(params)).id;
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+  const {id} = await params;
+  const currentCategory = id;
 
   return {
     title: `HotakesBlog - ${currentCategory} -`,
     description: `カテゴリー「${currentCategory}」の記事一覧`,
-    viewport: "width=device-width, initial-scale=1.0",
     openGraph: {
       url: `https://yourdomain.com/blogs/${currentCategory}`,
       title: currentCategory,
@@ -47,6 +47,11 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   };
 }
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1.0,
+};
+
 /**
  * This is our dynamic route page.
  * Replaces getServerSideProps (data is fetched directly in the server component).
@@ -54,15 +59,25 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 export default async function CategoryPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>
 }) {
+  const {id} = await params;
   // Fetch data for this category
-  const currentCategory = (await Promise.resolve(params)).id;
+  const currentCategory = id;
   const [data, categoriesData] = await Promise.all([
     getBlogs(),
     getCategories(),
   ]);
 
+  if (!data) {
+    return (
+      <main id="main">
+        <h2>Blog not found</h2>
+        <p>Sorry, the requested blog post was not found.</p>
+      </main>
+    );
+  }
+  
   // Filter to match the current category
   const newContents = data.contents.filter((blog: BlogItemType) =>
     blog.categories.map((cat: CategoryType) => cat.categoryId).includes(currentCategory),

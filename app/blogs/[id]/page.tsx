@@ -2,6 +2,11 @@ import { getBlogBy, getBlogs } from '../../../lib/getContent';
 import ReactMarkdown from 'react-markdown';
 import CodeBlock from '../../../components/CodeBlock';
 import formatDate from '../../../lib/FormatDate';
+import { Components } from "react-markdown";
+
+const markdownComponents: Components = {
+  code: CodeBlock
+};
 export const revalidate = 60; 
 // revalidate every 60 seconds (optional)
 
@@ -10,21 +15,20 @@ export async function generateStaticParams() {
   return data.contents.map((item: { id: string }) => ({ id: item.id }));
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }) {
-  // Retrieve blog data from the API
-  const data = await getBlogBy((await Promise.resolve(params)).id);
+export async function generateMetadata({params}: { params: Promise<{ id: string }> }) {
+  const {id} = await params;
+  const data = await getBlogBy(id);
   return {
     title: `HotakesBlog - ${data.title} -`,
     description: data.description || "ブログの詳細ページです。",
-    viewport: "width=device-width, initial-scale=1.0",
     openGraph: {
-      url: `https://yourdomain.com/blogs/${(await Promise.resolve(params)).id}`,
+      url: `https://yourdomain.com/blogs/${id}`,
       title: data.title,
       description: data.description,
       type: data.type || "article",
       images: [
         {
-          url: `https://og-image-five-swart.vercel.app/${data.title}.png`,
+          url: `https://og-image-five-swart.vercel.app/${encodeURIComponent(data.title)}.png`,
           width: 1200,
           height: 630,
         },
@@ -35,23 +39,37 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
       site: "@ifhito",
       title: data.title,
       description: data.description,
-      images: [`https://og-image-five-swart.vercel.app/${data.title}.png`],
+      images: [`https://og-image-five-swart.vercel.app/${encodeURIComponent(data.title)}.png`],
     },
   };
 }
 
-export default async function BlogItemPage({ params }: { params: { id: string } }) {
-  const data = await getBlogBy((await Promise.resolve(params)).id);
+// Next.js 15 以降では viewport を個別にエクスポート
+export const viewport = {
+  width: "device-width",
+  initialScale: 1.0,
+};
 
+export default async function BlogItemPage({params}: { params: Promise<{ id: string }> }) {
+  const {id} = await params;
+  const data = await getBlogBy(id);
+
+  if (!data) {
+    return (
+      <main id="main">
+        <h2>Blog not found</h2>
+        <p>Sorry, the requested blog post was not found.</p>
+      </main>
+    );
+  }
+  
   return (
     <main id="main">
       <article id="main-article" className="content-color">
-        <h2 id="title" className="head-color">{ data.title }</h2>
-        <p id="date" className="head-color">{ formatDate(data.date)}</p>
-        <hr/>
-        <ReactMarkdown
-          components={{ code: CodeBlock }}
-        >
+        <h2 id="title" className="head-color">{data.title}</h2>
+        <p id="date" className="head-color">{formatDate(data.date)}</p>
+        <hr />
+        <ReactMarkdown components={markdownComponents}>
           {data.content}
         </ReactMarkdown>
       </article>

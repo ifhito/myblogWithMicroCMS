@@ -6,7 +6,6 @@ import { getBlogs, getCategories } from '../lib/getContent';
 export const metadata = {
   title: 'HotakesBlog - Home -',
   description: 'このブログのホームです',
-  viewport: "width=device-width, initial-scale=1.0",
   openGraph: {
     url: 'https://yourdomain.com/blogs',
     title: 'HotakesBlog - Home -',
@@ -29,11 +28,26 @@ export const metadata = {
   },
 };
 
+// Next.js 15 以降では viewport を個別にエクスポート
+export const viewport = {
+  width: "device-width",
+  initialScale: 1.0,
+};
+
 export default async function Blogs() {
 
   const data = await getBlogs();
   const categoriesData = await getCategories();
 
+  if (!data) {
+    return (
+      <main id="main">
+        <h2>Blog not found</h2>
+        <p>Sorry, the requested blog post was not found.</p>
+      </main>
+    );
+  }
+  
   return (
     <BlogsTemplate
       contents={data.contents}
