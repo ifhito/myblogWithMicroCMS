@@ -1,6 +1,8 @@
+'use client';
 import React, { ChangeEvent} from 'react';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/navigation';
 import { CategoryType } from '../types/index';
+import styles from './SelectCategories.module.css';
 
 type selectCategoriesType = {
     categories: CategoryType[];
@@ -16,43 +18,12 @@ const SelectCategories:React.FC<selectCategoriesType> = ({categories=[], categor
         }
       };
     return (
-        <div className='wrapper-select'>
-            <label htmlFor="category-select" className='content-color category-select-label'>カテゴリー選択：</label>
-            <select id="category-select" className="category-select" value={category} onChange={handleSetContents}>
+        <div className={styles.wrapperSelect}>
+            <label htmlFor="category-select" className={styles.categorySelectLabel}>カテゴリー選択：</label>
+            <select id="category-select" className={styles.categorySelect} value={category} onChange={handleSetContents}>
                 <option value='all'>All</option>
                 {categories.map((category:CategoryType) => <option key={category.id} value={category.categoryId}>{category.categoryName}</option>)}
             </select>
-            <style jsx>{`
-                .wrapper-select {
-                    text-align: end;
-                }
-                .category-select-label {
-                    font-size: 1.5rem;
-                }
-                .category-select {
-                    height: 2.5rem;
-                    font-size: 1.5rem;
-                    background-color: transparent;
-                    color: #CDDC39;
-                    border: none;
-                    border-bottom: 2px solid #CDDC39;
-                }
-                @media (max-width: 767px){
-                    .wrapper-select {
-                        display: flex;
-                        flex-direction: column;
-                        margin-bottom: 3rem;
-                    }
-                    .category-select-label {
-                        text-align: start;
-                        font-size: 1.5rem;
-                    }
-                    .category-select {
-                        height: 2.5rem;
-                        font-size: 2rem;                        
-                    }
-                }
-            `}</style>
         </div>
     );
 };

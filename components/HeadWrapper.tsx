@@ -1,4 +1,5 @@
 import Head from 'next/head';
+// import styles from './HeadWrapper.module.css';
 
 type HeadWrapperType = {
     title: string

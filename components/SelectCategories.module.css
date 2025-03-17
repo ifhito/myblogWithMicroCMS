@@ -1,0 +1,33 @@
+.wrapperSelect {
+  text-align: end;
+}
+
+.categorySelectLabel {
+  color: #CDDC39;
+  font-size: 1.5rem;
+}
+
+.categorySelect {
+  height: 2.5rem;
+  font-size: 1.5rem;
+  background-color: transparent;
+  color: #CDDC39;
+  border: none;
+  border-bottom: 2px solid #CDDC39;
+}
+
+@media (max-width: 767px) {
+  .wrapperSelect {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+  }
+  .categorySelectLabel {
+    text-align: start;
+    font-size: 1.5rem;
+  }
+  .categorySelect {
+    height: 2.5rem;
+    font-size: 2rem;
+  }
+}
