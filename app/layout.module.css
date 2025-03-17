@@ -1,0 +1,24 @@
+#wrapper {
+    min-height: 100vh;
+}
+.skipMainContents {
+    background: transition;
+    height: 40px;
+    width: fit-content;
+    left: 0;
+    padding: 8px;
+    position: absolute;
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+}
+.skipMainContents:focus {
+    transform: translateY(0%);
+}
+@media (max-width: 767px){
+    #wrapper {
+        padding: 0 3rem;
+    }
+    #main {
+        max-width: 450px;
+    }
+}
