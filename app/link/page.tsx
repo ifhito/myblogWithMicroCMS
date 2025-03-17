@@ -5,7 +5,6 @@ import styles from "./link.module.css";
 export const metadata = {
   title: `HotakesBlog -Link-`,
   description: "別リンクへのページ",
-  viewport: "width=device-width, initial-scale=1.0",
   openGraph: {
     url: `https://hotakesblog.vercel.app/link`,
     title: `HotakesBlog - About -`,
@@ -26,6 +25,11 @@ export const metadata = {
     description: '別リンクへのページ',
     images: [`https://og-image-five-swart.vercel.app/HotakesBlog -Link-.png`],
   },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1.0,
 };
 
 export default function Link_() {
