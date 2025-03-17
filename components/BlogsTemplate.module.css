@@ -1,0 +1,28 @@
+#moreButton {
+  background-color: transparent;
+  color: #2196f3;
+  border-color: #cddc39;
+  border-radius: 0.9em;
+  border-style: solid;
+  font-size: 2.4rem;
+  padding: 0.1rem 5rem;
+}
+
+#moreButton:focus {
+  background-color: #cddc39;
+  color: #252525;
+}
+
+#moreButton:hover {
+  background-color: #cddc39;
+  color: #252525;
+}
+
+#buttonWrapper {
+  text-align: center;
+}
+
+#containerUl {
+  list-style: none;
+  padding-left: 0;
+}
