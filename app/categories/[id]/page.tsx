@@ -5,20 +5,31 @@ import { CategoryType, BlogItemType } from '../../../types/index';
 // (Optional) Revalidate the page every 60 seconds
 export const revalidate = 60;
 export const dynamicParams = true; // or false
+
+// getCategories の結果をキャッシュ
+let categoriesCache: any = null;
+
+// ヘルパー関数として内部で使用
+async function getAllCategories() {
+  if (!categoriesCache) {
+    categoriesCache = await getCategories();
+  }
+  return categoriesCache;
+}
+
 /**
  * Replaces getStaticPaths.
  * Next.js uses this to statically generate each route at build time.
  */
 export async function generateStaticParams() {
-  const categories = await getCategories();
-  // Return an array of { id } objects for each dynamic segment
+  const categories = await getAllCategories();
   return categories.contents.map((item: { categoryId: string }) => ({
     id: item.categoryId,
   }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
-  const {id} = await params;
+  const { id } = await params;
   const currentCategory = id;
 
   return {
@@ -56,13 +67,8 @@ export const viewport = {
  * This is our dynamic route page.
  * Replaces getServerSideProps (data is fetched directly in the server component).
  */
-export default async function CategoryPage({
-  params,
-}: {
-  params: Promise<{ id: string }>
-}) {
-  const {id} = await params;
-  // Fetch data for this category
+export default async function CategoryPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   const currentCategory = id;
   const [data, categoriesData] = await Promise.all([
     getBlogs(),
@@ -77,7 +83,7 @@ export default async function CategoryPage({
       </main>
     );
   }
-  
+
   // Filter to match the current category
   const newContents = data.contents.filter((blog: BlogItemType) =>
     blog.categories.map((cat: CategoryType) => cat.categoryId).includes(currentCategory),

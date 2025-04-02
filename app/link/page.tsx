@@ -32,28 +32,27 @@ export const viewport = {
   initialScale: 1.0,
 };
 
-export default function Link_() {
+export default function LinkPage() {
   const urls = [
     "https://twitter.com/ifhito",
     "https://note.com/ifhito",
     "https://github.com/ifhito",
     "https://zenn.dev/ifhito",
-    "https://bookmeter.com/users/991028",
+    "https://booklog.jp/users/hotake",
   ];
+
   return (
-    <>
-      <main id='main'>
-        <h2 className='head-color'>その他リンク</h2>
-        <ul id='urlUl'>
-          {urls.map((url) => (
-            <li id='urlLink' key={url.split(".")[0].split("//")[1]}>
-              <Link href={url} passHref>
-                {url.split(".")[0].split("//")[1]}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </main>
-    </>
+    <main id="main">
+      <h2 className="head-color">その他リンク</h2>
+      <ul className={styles.linkList}>
+        {urls.map((url) => (
+          <li key={url.split(".")[0].split("//")[1]}>
+            <Link href={url} target="_blank" rel="noopener noreferrer">
+              {url.split(".")[0].split("//")[1]}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </main>
   );
-};
+}

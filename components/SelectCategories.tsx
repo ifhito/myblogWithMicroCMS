@@ -1,5 +1,5 @@
 'use client';
-import React, { ChangeEvent} from 'react';
+import React, { ChangeEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import { CategoryType } from '../types/index';
 import styles from './SelectCategories.module.css';
@@ -8,6 +8,7 @@ type selectCategoriesType = {
     categories: CategoryType[];
     category: string;
 }
+
 const SelectCategories:React.FC<selectCategoriesType> = ({categories=[], category=''}) => {
     const router = useRouter();
     const handleSetContents = (e: ChangeEvent<HTMLSelectElement>)=>{
@@ -26,6 +27,6 @@ const SelectCategories:React.FC<selectCategoriesType> = ({categories=[], categor
             </select>
         </div>
     );
-};
+}
 
 export default SelectCategories;
