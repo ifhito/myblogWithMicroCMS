@@ -1,6 +1,6 @@
 import React, { RefObject} from 'react';
 
-export type CategoryType={
+export type CategoryType = {
     id: string;
     createdAt: string;
     updatedAt: string;
@@ -9,15 +9,18 @@ export type CategoryType={
     categoryId: string;
     categoryName: string;
 }
+
 export type BlogItemType = {
-    id: 'string';
-    createdAt: 'string';
-    updatedAt: 'string';
-    publishedAt: 'string';
-    revisedAt: 'string';
-    title: 'string';
-    date: 'string';
-    content: 'string'
+    id: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+    revisedAt: string;
+    title: string;
+    date: string;
+    content: string;
+    description?: string;
+    type?: string;
     categories: CategoryType[];
 }
 // export type SubCategoryType = {
