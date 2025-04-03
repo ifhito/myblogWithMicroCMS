@@ -20,17 +20,21 @@ const BlogsTemplate = ({contents, categories, categoryData}: BlogsTemplateType) 
       : categories.filter(
           (category: CategoryType) => category.categoryId === categoryData
         )[0].categoryName;
-  const lastResultRef = useRef<HTMLAnchorElement>(null);
+  const nextItemRef = useRef<HTMLAnchorElement>(null);
 
   const handleClickLoadMore = () => {
     setEndContent(endContent + 5);
+    setTimeout(() => {
+      const nextItem = document.querySelector(`a[href="/blogs/${contents[endContent].id}"]`);
+      if (nextItem instanceof HTMLAnchorElement) {
+        nextItem.focus();
+      }
+    }, 0);
   };
 
   const handleLoadMoreKeyboard = (event: KeyboardEvent<HTMLButtonElement>) => {
-    if (lastResultRef.current && event.key === 'Enter') {
+    if (event.key === 'Enter') {
       event.preventDefault();
-      lastResultRef.current.focus();
-      lastResultRef.current.blur();
       handleClickLoadMore();
     }
   };
@@ -46,6 +50,7 @@ const BlogsTemplate = ({contents, categories, categoryData}: BlogsTemplateType) 
                 <BlogItem
                   items={item}
                   key={item.id}
+                  ref={i === endContent - 1 ? nextItemRef : undefined}
                 />
               );
             })}
@@ -58,6 +63,7 @@ const BlogsTemplate = ({contents, categories, categoryData}: BlogsTemplateType) 
                 id={styles.moreButton}
                 onClick={handleClickLoadMore}
                 onKeyDown={handleLoadMoreKeyboard}
+                data-testid="more-button"
               >
                 もっと見る
               </button>

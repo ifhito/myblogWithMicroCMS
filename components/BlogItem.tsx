@@ -1,5 +1,5 @@
 // This server-compatible BlogItem doesn't use RefObjects or "innerRef"
-import React from 'react';
+import React, { forwardRef } from 'react';
 import formatDate from '../lib/FormatDate';
 import Link from 'next/link';
 import styles from './BlogItem.module.css';
@@ -9,7 +9,7 @@ type BlogTitleItemType = {
   items: BlogItemType;
 };
 
-const BlogItem: React.FC<BlogTitleItemType> = ({
+const BlogItem = forwardRef<HTMLAnchorElement, BlogTitleItemType>(({
   items = {
     id: 'dummy',
     createdAt: 'dummy',
@@ -31,12 +31,12 @@ const BlogItem: React.FC<BlogTitleItemType> = ({
       },
     ],
   },
-}) => {
+}, ref) => {
   return (
     <>
       <li key={items.id} className={styles.pageLi}>
         <h2 id={styles.h2} className="content-color">
-          <Link id={styles.a} className="link-border-none" href="/blogs/[id]" as={`/blogs/${items.id}`} passHref>
+          <Link id={styles.a} className="link-border-none" href="/blogs/[id]" as={`/blogs/${items.id}`} passHref ref={ref}>
             {items.title}
           </Link>
         </h2>
@@ -62,6 +62,8 @@ const BlogItem: React.FC<BlogTitleItemType> = ({
       </li>
     </>
   );
-};
+});
+
+BlogItem.displayName = 'BlogItem';
 
 export default BlogItem;
